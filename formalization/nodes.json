@@ -1,0 +1,244 @@
+{
+  "nodes": [
+    {
+      "attribution": null,
+      "authors": [
+        {
+          "affiliation": "ChronoAI Pte Ltd, Singapore",
+          "name": "Haobo Ma"
+        },
+        {
+          "affiliation": "National University of Singapore; ChronoAI Pte Ltd, Singapore",
+          "name": "Wenlin Zhang"
+        }
+      ],
+      "claim": "s1",
+      "contributor": null,
+      "identity": "collected:hardin233156:3:s1",
+      "kind": "paper",
+      "label": "Theorem",
+      "lean_source": {
+        "revision": "e135d8e2afafffb707a541357df302c35e90baff",
+        "url": "https://github.com/the-omega-institute/trureturing/blob/e135d8e2afafffb707a541357df302c35e90baff/D5/S3/Combinatorics/TraceAvoidingArrays/HardinA233156Row.lean"
+      },
+      "lineage": "collected:hardin233156:s1",
+      "macros": {
+        "\\counts": "C",
+        "\\ones": "\\boldsymbol{1}"
+      },
+      "next_step": "Existing Lean evidence is being checked before new proof work.",
+      "proof_basis": null,
+      "proof_state": "preparing",
+      "receipt": null,
+      "record": "hardin233156",
+      "scope": "in_scope",
+      "statement": "The initial values are\n\\[\n a_1=27,\\qquad a_2=96,\\qquad a_3=432,\\qquad a_4=1944.\n\\]\nFor every \\(n\\ge5\\),\n\\begin{equation}\n a_n=5a_{n-1}-2a_{n-2}.\n\\end{equation}\nConsequently the ordinary generating function, starting at \\(n=1\\), is\n\\begin{equation}\n \\sum_{n\\ge1}a_nz^n\n =\\frac{3z(9-13z+2z^2-8z^3)}{1-5z+2z^2}.\n\\end{equation}\nEquation~\\eqref{eq:recurrence} fails at \\(n=4\\), and no constant-coefficient\norder-one homogeneous recurrence holds eventually.",
+      "status": "preparing",
+      "target_digest": null,
+      "title": "Boundary formulas for Hardin's array recurrences and Barker's generating functions via Biggs–Meredith enumeration",
+      "toolchain": null,
+      "version": 3,
+      "work": "hardin233156"
+    },
+    {
+      "attribution": null,
+      "authors": [
+        {
+          "affiliation": "ChronoAI Pte Ltd, Singapore",
+          "name": "Haobo Ma"
+        },
+        {
+          "affiliation": "National University of Singapore; ChronoAI Pte Ltd, Singapore",
+          "name": "Wenlin Zhang"
+        }
+      ],
+      "claim": "s2",
+      "contributor": null,
+      "identity": "collected:hardin233156:3:s2",
+      "kind": "paper",
+      "label": "Theorem",
+      "lean_source": {
+        "revision": "e135d8e2afafffb707a541357df302c35e90baff",
+        "url": "https://github.com/the-omega-institute/trureturing/blob/e135d8e2afafffb707a541357df302c35e90baff/D5/S3/Combinatorics/TraceAvoidingArrays/HardinA233156Row.lean"
+      },
+      "lineage": "collected:hardin233156:s2",
+      "macros": {
+        "\\counts": "C",
+        "\\ones": "\\boldsymbol{1}"
+      },
+      "next_step": "Existing Lean evidence is being checked before new proof work.",
+      "proof_basis": null,
+      "proof_state": "preparing",
+      "receipt": null,
+      "record": "hardin233156",
+      "scope": "in_scope",
+      "statement": "For every \\(n\\ge3\\),\n\\begin{equation}\n P(G_n,q)=(q-1)^2(q^2-3q+3)^2\n P(P_3\\mathbin{\\square}P_{n-2},q).\n\\end{equation}\nIn particular, \\(a_n=36b_{n-2}\\).",
+      "status": "preparing",
+      "target_digest": null,
+      "title": "Boundary formulas for Hardin's array recurrences and Barker's generating functions via Biggs–Meredith enumeration",
+      "toolchain": null,
+      "version": 3,
+      "work": "hardin233156"
+    },
+    {
+      "attribution": null,
+      "authors": [
+        {
+          "affiliation": "ChronoAI Pte Ltd, Singapore",
+          "name": "Haobo Ma"
+        },
+        {
+          "affiliation": "National University of Singapore; ChronoAI Pte Ltd, Singapore",
+          "name": "Wenlin Zhang"
+        }
+      ],
+      "claim": "s3",
+      "contributor": null,
+      "identity": "collected:hardin233156:3:s3",
+      "kind": "paper",
+      "label": "Corollary",
+      "lean_source": {
+        "revision": "e135d8e2afafffb707a541357df302c35e90baff",
+        "url": "https://github.com/the-omega-institute/trureturing/blob/e135d8e2afafffb707a541357df302c35e90baff/D5/S3/Combinatorics/TraceAvoidingArrays/HardinA233156Row.lean"
+      },
+      "lineage": "collected:hardin233156:s3",
+      "macros": {
+        "\\counts": "C",
+        "\\ones": "\\boldsymbol{1}"
+      },
+      "next_step": "Existing Lean evidence is being checked before new proof work.",
+      "proof_basis": null,
+      "proof_state": "preparing",
+      "receipt": null,
+      "record": "hardin233156",
+      "scope": "in_scope",
+      "statement": "With the offsets in OEIS A020698 and A052913, for every \\(n\\ge3\\),\n\\[\n a_n=216\\,\\mathrm{A020698}(n-3)\n     =108\\,\\mathrm{A052913}(n-2).\n\\]",
+      "status": "preparing",
+      "target_digest": null,
+      "title": "Boundary formulas for Hardin's array recurrences and Barker's generating functions via Biggs–Meredith enumeration",
+      "toolchain": null,
+      "version": 3,
+      "work": "hardin233156"
+    },
+    {
+      "attribution": null,
+      "authors": [
+        {
+          "affiliation": "ChronoAI Pte Ltd, Singapore",
+          "name": "Haobo Ma"
+        },
+        {
+          "affiliation": "National University of Singapore; ChronoAI Pte Ltd, Singapore",
+          "name": "Wenlin Zhang"
+        }
+      ],
+      "claim": "s4",
+      "contributor": null,
+      "identity": "collected:hardin233156:3:s4",
+      "kind": "paper",
+      "label": "Corollary",
+      "lean_source": {
+        "revision": "e135d8e2afafffb707a541357df302c35e90baff",
+        "url": "https://github.com/the-omega-institute/trureturing/blob/e135d8e2afafffb707a541357df302c35e90baff/D5/S3/Combinatorics/TraceAvoidingArrays/HardinA233156Row.lean"
+      },
+      "lineage": "collected:hardin233156:s4",
+      "macros": {
+        "\\counts": "C",
+        "\\ones": "\\boldsymbol{1}"
+      },
+      "next_step": "Existing Lean evidence is being checked before new proof work.",
+      "proof_basis": null,
+      "proof_state": "preparing",
+      "receipt": null,
+      "record": "hardin233156",
+      "scope": "in_scope",
+      "statement": "Let \\(\\lambda_\\pm=(5\\pm\\sqrt{17})/2\\). For \\(n\\ge3\\),\n\\[\n a_n=216\\left[\\left(1+\\frac4{\\sqrt{17}}\\right)\\lambda_+^{n-3}\n             +\\left(1-\\frac4{\\sqrt{17}}\\right)\\lambda_-^{n-3}\\right].\n\\]\nIn particular, \\(a_{n+1}/a_n\\to\\lambda_+\\).",
+      "status": "preparing",
+      "target_digest": null,
+      "title": "Boundary formulas for Hardin's array recurrences and Barker's generating functions via Biggs–Meredith enumeration",
+      "toolchain": null,
+      "version": 3,
+      "work": "hardin233156"
+    },
+    {
+      "attribution": null,
+      "authors": [
+        {
+          "affiliation": "ChronoAI Pte Ltd, Singapore",
+          "name": "Haobo Ma"
+        },
+        {
+          "affiliation": "National University of Singapore; ChronoAI Pte Ltd, Singapore",
+          "name": "Wenlin Zhang"
+        }
+      ],
+      "claim": "s5",
+      "contributor": null,
+      "identity": "collected:hardin233156:3:s5",
+      "kind": "paper",
+      "label": "Corollary",
+      "lean_source": {
+        "revision": "e135d8e2afafffb707a541357df302c35e90baff",
+        "url": "https://github.com/the-omega-institute/trureturing/blob/e135d8e2afafffb707a541357df302c35e90baff/D5/S3/Combinatorics/TraceAvoidingArrays/HardinA233156Row.lean"
+      },
+      "lineage": "collected:hardin233156:s5",
+      "macros": {
+        "\\counts": "C",
+        "\\ones": "\\boldsymbol{1}"
+      },
+      "next_step": "Existing Lean evidence is being checked before new proof work.",
+      "proof_basis": null,
+      "proof_state": "preparing",
+      "receipt": null,
+      "record": "hardin233156",
+      "scope": "in_scope",
+      "statement": "The parent table A233155 satisfies\n\\begin{align*}\n \\counts_1(n)&=3\\cdot2^{n-1} &&(n\\ge1),\\\\\n \\counts_2(1)&=9,\\qquad\n \\counts_2(n)=24\\cdot3^{n-2} &&(n\\ge2),\\\\\n \\counts_h(1)&=3^h,\\quad\n \\counts_h(2)=6\\cdot4^{h-1} &&(h\\ge1),\\\\\n \\counts_h(3)&=12\\cdot6^{h-1},\\quad\n \\counts_h(4)=24\\cdot9^{h-1} &&(h\\ge1).\n\\end{align*}",
+      "status": "preparing",
+      "target_digest": null,
+      "title": "Boundary formulas for Hardin's array recurrences and Barker's generating functions via Biggs–Meredith enumeration",
+      "toolchain": null,
+      "version": 3,
+      "work": "hardin233156"
+    },
+    {
+      "attribution": null,
+      "authors": [
+        {
+          "affiliation": "ChronoAI Pte Ltd, Singapore",
+          "name": "Haobo Ma"
+        },
+        {
+          "affiliation": "National University of Singapore; ChronoAI Pte Ltd, Singapore",
+          "name": "Wenlin Zhang"
+        }
+      ],
+      "claim": "s6",
+      "contributor": null,
+      "identity": "collected:hardin233156:3:s6",
+      "kind": "paper",
+      "label": "Corollary",
+      "lean_source": {
+        "revision": "e135d8e2afafffb707a541357df302c35e90baff",
+        "url": "https://github.com/the-omega-institute/trureturing/blob/e135d8e2afafffb707a541357df302c35e90baff/D5/S3/Combinatorics/TraceAvoidingArrays/HardinA233156Row.lean"
+      },
+      "lineage": "collected:hardin233156:s6",
+      "macros": {
+        "\\counts": "C",
+        "\\ones": "\\boldsymbol{1}"
+      },
+      "next_step": "Existing Lean evidence is being checked before new proof work.",
+      "proof_basis": null,
+      "proof_state": "preparing",
+      "receipt": null,
+      "record": "hardin233156",
+      "scope": "in_scope",
+      "statement": "For the coefficient list \\(c=(c_1,\\ldots,c_d)\\) in\nTable~\\ref{tab:rows}, the row sequence \\(b_n=\\counts_h(n)\\) satisfies\n\\(b_n=\\sum_{j=1}^d c_jb_{n-j}\\) for every \\(n\\ge N\\) in that table.\nFor \\(k=5,6,7\\), the column sequence \\(b_h=\\counts_h(k)\\) satisfies,\nrespectively,\n\\begin{align*}\n b_h&=15b_{h-1}-18b_{h-2} &&(h\\ge3),\\\\\n b_h&=25b_{h-1}-90b_{h-2}+81b_{h-3} &&(h\\ge4),\\\\\n b_h&=42b_{h-1}-351b_{h-2}+972b_{h-3}-810b_{h-4} &&(h\\ge5).\n\\end{align*}\nFor four rows the ordinary generating function is\n\\[\n \\sum_{n\\ge1}\\counts_4(n)z^n=\n \\frac{3z(27-115z+117z^2-186z^3+96z^4-360z^5+216z^6)}\n {1-9z+15z^2-6z^3}.\n\\]\nIts recurrence begins sharply at \\(n=8\\).",
+      "status": "preparing",
+      "target_digest": null,
+      "title": "Boundary formulas for Hardin's array recurrences and Barker's generating functions via Biggs–Meredith enumeration",
+      "toolchain": null,
+      "version": 3,
+      "work": "hardin233156"
+    }
+  ]
+}

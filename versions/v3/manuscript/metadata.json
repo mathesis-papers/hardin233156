@@ -1,0 +1,43 @@
+{
+  "id": "hardin233156",
+  "revision": 3,
+  "problem_ids": [
+    "hardin233156",
+    "hardin233157",
+    "hardin233158",
+    "hardin233159"
+  ],
+  "topic": "Exact recurrences for labeled arrays with horizontal and antidiagonal sum exclusion",
+  "title": "Boundary formulas for Hardin's array recurrences and Barker's generating functions via Biggs–Meredith enumeration",
+  "creators": [
+    {
+      "name": "Haobo Ma",
+      "affiliation": "ChronoAI Pte Ltd, Singapore"
+    },
+    {
+      "name": "Wenlin Zhang",
+      "affiliation": "National University of Singapore; ChronoAI Pte Ltd, Singapore"
+    }
+  ],
+  "abstract": "We give an alternative proof of Hardin's empirical recurrence and Barker's generating function in OEIS A233156, revision 8 (9 October 2018), FORMULA lines 1 and 2, by reducing them to Biggs and Meredith's double-strip enumeration (1976, Section 3, pp. 10–11). For n >= 3 the labeled three-row array count is exactly 36 times the proper three-coloring count of a 3 by (n-2) rectangular grid. This gives the recurrence for n >= 5 and the complete generating function, including its exceptional initial terms. A direct five-state proof establishes sharp onset and minimal eventual order two. Every displayed row and column recurrence of A233155 and Barker's four-row generating function in A233157 are also proved, with explicit finite integer identities for the larger strips.",
+  "summary": "The three-row formulas are consequences of the classical rectangular-grid enumeration via an explicit boundary decomposition, with a second five-state proof. The chromatic-polynomial boundary identity, minimality, closed form and thin-strip formulas have written proofs. The remaining displayed recurrences and four-row generating function have a written counting reduction and finite integer certificates. The linked Lean declarations describe the three-row recurrence, alternating-column equivalence and five-state count; no additional formal scope is assigned to the boundary identity or extensions.",
+  "license": "cc-by-4.0",
+  "evidence_url": "https://github.com/the-omega-institute/trureturing/blob/e135d8e2afafffb707a541357df302c35e90baff/D5/S3/Combinatorics/TraceAvoidingArrays/HardinA233156Row.lean",
+  "coverage": {
+    "A233156": "Reproved: both empirical FORMULA assertions via Biggs–Meredith (1976), Roček–Shrock–Tsai (1997) and the explicit boundary identity; sharp onset and minimal eventual order two",
+    "A233155": "All displayed row 1..7 and column 1..7 recurrences",
+    "A233157": "Both empirical FORMULA assertions, including the generating function",
+    "A233158": "The displayed order-seven recurrence for n >= 12",
+    "A233159": "The displayed order-nine recurrence for n >= 16",
+    "A233160": "The displayed order-27 recurrence for n >= 34",
+    "A233258": "Not covered; a different six-color counting problem",
+    "A020698 and A052913": "Not posed in the array entries: a_n = 216 A020698(n-3) = 108 A052913(n-2) for n >= 3; proved from the boundary identity"
+  },
+  "prior_work": [
+    {"authors": "N. L. Biggs; G. H. J. Meredith", "year": 1976, "url": "https://doi.org/10.1016/0095-8956(76)90062-9", "locator": "Section 3, Theorem 2, p. 10; double-strip matrix, p. 11", "scope": "Three-row rectangular-grid recurrence"},
+    {"authors": "M. Roček; R. Shrock; S.-H. Tsai", "year": 1997, "url": "https://arxiv.org/abs/cond-mat/9712148v1", "locator": "Section II.B, equations (2.35)–(2.36), (2.40)–(2.41)", "scope": "Three-row grid generating function; related four-row and diagonal-strip denominators in Section III.A and Appendix II.A"},
+    {"authors": "J. Salas; A. D. Sokal", "year": 2000, "url": "https://arxiv.org/abs/cond-mat/0004330v2", "locator": "Section 5.2, equations (5.3)–(5.4), footnote 28", "scope": "Rectangular-grid transfer matrix, crediting Biggs–Meredith; version 2 dated 2001"},
+    {"authors": "J. Ginepro; T. C. Hull", "year": 2014, "url": "https://cs.uwaterloo.ca/journals/JIS/VOL17/Hull/hull.html", "locator": "Section 3, p. 6; Theorem 4, p. 11", "scope": "Normalized three-row enumeration and its grid-coloring bijection"},
+    {"authors": "G. Spahn", "year": 2024, "url": "https://sites.math.rutgers.edu/~zeilberg/Theses/GeorgeSpahnThesis.pdf", "locator": "Section 6.1, pp. 44–45", "scope": "Finite-state derivation of the three-row grid generating function"}
+  ]
+}

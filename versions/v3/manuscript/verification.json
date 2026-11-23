@@ -1,0 +1,176 @@
+{
+  "status": "pass",
+  "arithmetic": "exact integers",
+  "column_pairs": 729,
+  "alternating_complement_pairs": 729,
+  "quotient_fibres": 135,
+  "matrix": [
+    [
+      2,
+      2,
+      2,
+      2,
+      0
+    ],
+    [
+      1,
+      1,
+      0,
+      1,
+      1
+    ],
+    [
+      1,
+      1,
+      0,
+      0,
+      0
+    ],
+    [
+      1,
+      1,
+      1,
+      1,
+      0
+    ],
+    [
+      0,
+      0,
+      0,
+      1,
+      1
+    ]
+  ],
+  "multiplicities": [
+    3,
+    6,
+    6,
+    6,
+    6
+  ],
+  "continuation_vectors": [
+    [
+      1,
+      1,
+      1,
+      1,
+      1
+    ],
+    [
+      8,
+      4,
+      2,
+      4,
+      2
+    ],
+    [
+      36,
+      18,
+      12,
+      18,
+      6
+    ],
+    [
+      168,
+      78,
+      54,
+      84,
+      24
+    ],
+    [
+      768,
+      354,
+      246,
+      384,
+      108
+    ]
+  ],
+  "matrix_identity_residual": [
+    0,
+    0,
+    0,
+    0,
+    0
+  ],
+  "literal_and_orbit_count_range": [
+    1,
+    210
+  ],
+  "direct_array_count_range": [
+    0,
+    4
+  ],
+  "direct_array_counts": [
+    1,
+    27,
+    96,
+    432,
+    1944
+  ],
+  "source_prefix_terms": 21,
+  "recurrence_range": [
+    5,
+    210
+  ],
+  "recurrence_residual_at_four": -24,
+  "minimality_determinant_range": [
+    3,
+    208
+  ],
+  "minimality_determinant_initial": 46656,
+  "positive_series_numerator": [
+    0,
+    27,
+    -39,
+    6,
+    -24
+  ],
+  "thin_rows_checked": {
+    "height": [
+      1,
+      2
+    ],
+    "length": [
+      1,
+      12
+    ]
+  },
+  "thin_columns_checked": {
+    "height": [
+      1,
+      6
+    ],
+    "length": [
+      1,
+      4
+    ]
+  },
+  "four_column_row_matrix": [
+    [
+      3,
+      3,
+      2,
+      2
+    ],
+    [
+      2,
+      2,
+      2,
+      2
+    ],
+    [
+      2,
+      2,
+      2,
+      2
+    ],
+    [
+      3,
+      3,
+      2,
+      2
+    ]
+  ],
+  "four_column_proper_row_pairs": 576,
+  "scope": "Finite counts and exact matrix identities; the note supplies the all-length proof."
+}

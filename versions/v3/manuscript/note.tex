@@ -1,0 +1,674 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage[margin=23mm]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage{amsmath,amssymb,amsthm,booktabs,tabularx}
+\usepackage[colorlinks=true,linkcolor=blue,citecolor=blue,urlcolor=blue]{hyperref}
+\hypersetup{pdftitle={Boundary formulas for Hardin's array recurrences and Barker's generating functions via Biggs--Meredith enumeration},pdfauthor={Haobo Ma; Wenlin Zhang}}
+\newtheorem{theorem}{Theorem}
+\newtheorem{corollary}[theorem]{Corollary}
+\newcommand{\ones}{\boldsymbol{1}}
+\newcommand{\counts}{C}
+\setlength{\emergencystretch}{1em}
+\title{Boundary formulas for Hardin's array recurrences and Barker's generating functions via Biggs--Meredith enumeration}
+\author{\begin{tabular}{c}Haobo Ma\\[-1mm]\small ChronoAI Pte Ltd, Singapore\end{tabular}
+\and \begin{tabular}{c}Wenlin Zhang\\[-1mm]\small National University of Singapore\\[-1mm]\small ChronoAI Pte Ltd, Singapore\end{tabular}}
+\date{19 November 2026}
+
+\begin{document}
+\maketitle
+\begin{abstract}
+We give an alternative proof of Hardin's empirical recurrence and Barker's
+generating function in OEIS A233156, revision 8 (9 October 2018), FORMULA
+lines 1 and 2, by reducing them to Biggs and Meredith's double-strip
+enumeration (1976, Section~3, pp.~10--11).
+For labeled three-row arrays over \(\{0,1,2\}\) whose horizontal and
+antidiagonal neighbors never sum to two, the count is exactly 36 times
+the number of proper three-colorings of a three-row rectangular grid
+with two fewer columns. This gives \(a_n=5a_{n-1}-2a_{n-2}\) for
+\(n\ge5\) and the complete generating function, including its exceptional
+initial terms. We also give a five-state proof, establish sharp onset and
+minimal eventual order two, and prove every displayed row and column
+recurrence in the parent table A233155, including Barker's four-row
+generating function. The larger strips use specified finite integer
+identities.
+\end{abstract}
+
+\section{The counting problem}
+For positive integers \(h,n\), let \(\counts_h(n)\) be the number of arrays
+\(x=(x_{r,j})\in\{0,1,2\}^{h\times n}\) such that
+\begin{align}
+ x_{r,j}+x_{r,j+1}&\ne2 &&(1\le r\le h,\ 1\le j<n),\label{eq:horizontal}\\
+ x_{r+1,j}+x_{r,j+1}&\ne2 &&(1\le r<h,\ 1\le j<n).\label{eq:diagonal}
+\end{align}
+There is no restriction between vertically adjacent entries. Every labeled
+array counts separately. This is the table A233155 of Hardin~\cite{parent};
+its third row is A233156~\cite{source}. Write \(a_n=\counts_3(n)\).
+The first FORMULA line of A233156 calls its recurrence ``Empirical'';
+the second, signed by Colin Barker, gives an ``Empirical g.f.''.
+The theorem below establishes both formulas as consequences of classical
+grid enumeration, with the boundary factors made explicit.
+
+The general transfer-matrix method produces rational counting series;
+see~\cite[Section V.6]{ac}.
+Biggs and Meredith~\cite[Section~3, Theorem~2 and p.~11]{bm} already give
+the relevant three-row grid recurrence. Ro\v{c}ek, Shrock and Tsai~\cite[
+Section~II.B]{rst} give its rational generating function; Salas and
+Sokal~\cite[Section~5.2]{ss} give a transfer matrix and explicitly credit
+Biggs and Meredith. A later combinatorial proof is supplied by Ginepro
+and Hull~\cite[Section~3 and Theorem~4]{gh}, through their bijection with
+Miura-ori assignments; Spahn~\cite[Section~6.1]{spahn} gives a further
+finite-state derivation. The connection here is an exact boundary
+reduction, not just a match of recurrence denominators. The five-state
+argument below also proves the result directly from the array definition.
+
+\begin{theorem}\label{thm:main}
+The initial values are
+\[
+ a_1=27,\qquad a_2=96,\qquad a_3=432,\qquad a_4=1944.
+\]
+For every \(n\ge5\),
+\begin{equation}\label{eq:recurrence}
+ a_n=5a_{n-1}-2a_{n-2}.
+\end{equation}
+Consequently the ordinary generating function, starting at \(n=1\), is
+\begin{equation}\label{eq:gf}
+ \sum_{n\ge1}a_nz^n
+ =\frac{3z(9-13z+2z^2-8z^3)}{1-5z+2z^2}.
+\end{equation}
+Equation~\eqref{eq:recurrence} fails at \(n=4\), and no constant-coefficient
+order-one homogeneous recurrence holds eventually.
+\end{theorem}
+
+\section{The coloring graph and its rectangular core}\label{sec:boundary}
+Let \(\tau(t)=2-t\), an involution of \(\{0,1,2\}\), and set
+\(y_{r,j}=\tau^{j-1}(x_{r,j})\).
+Every edge in~\eqref{eq:horizontal}--\eqref{eq:diagonal} joins consecutive
+columns. For its two labels \(u,v\),
+\[
+ \tau^{j-1}(u)\ne\tau^j(v)
+ \quad\Longleftrightarrow\quad u\ne\tau(v)
+ \quad\Longleftrightarrow\quad u+v\ne2.
+\]
+Thus this relabeling is a bijection from the original arrays to proper
+three-colorings of the graph with exactly those edges. It is invertible
+column by column and introduces no normalization by color permutations.
+Let \(G_n\) denote this coloring graph when \(h=3\), and let \(P_m\)
+denote the path on \(m\) vertices. Write
+\[
+ b_m=P(P_3\mathbin{\square}P_m,3)\qquad(m\ge1),
+\]
+where \(\square\) is the Cartesian product of graphs and \(P(H,q)\)
+is the chromatic polynomial of a finite graph \(H\), counting proper
+colorings by \(q\) labeled colors for positive integers \(q\).
+
+\begin{theorem}\label{thm:boundary}
+For every \(n\ge3\),
+\begin{equation}\label{eq:boundary}
+ P(G_n,q)=(q-1)^2(q^2-3q+3)^2
+ P(P_3\mathbin{\square}P_{n-2},q).
+\end{equation}
+In particular, \(a_n=36b_{n-2}\).
+\end{theorem}
+\begin{proof}
+Shear the coordinates by \((r,j)\mapsto(r,t)=(r,r+j)\).
+Horizontal edges become \((r,t)\sim(r,t+1)\), and antidiagonal edges
+become \((r,t)\sim(r+1,t)\). The vertices
+\[
+ 1\le r\le3,\qquad4\le t\le n+1
+\]
+therefore induce \(P_3\square P_{n-2}\).
+Exactly three vertices remain on each side:
+\[
+ L=\{(1,2),(1,3),(2,3)\},\qquad
+ R=\{(2,n+2),(3,n+2),(3,n+3)\}.
+\]
+On the left, \((1,3),(2,3)\) form, together with the core edge
+\((1,4)\sim(2,4)\), an attached square; \((1,2)\) is pendant at
+\((1,3)\). On the right there is the same configuration along the core
+edge \((2,n+1)\sim(3,n+1)\), with pendant vertex \((3,n+3)\).
+There are no other edges incident to \(L\cup R\), and the two sets are
+disjoint even when \(n=3\).
+
+Fix a proper coloring of the core. On an attached square the shared
+edge has two distinct colors. Its two new vertices have \((q-1)^2\)
+color choices before their mutual edge is imposed; exactly \(q-2\)
+of these give them equal colors. Thus there are
+\(q^2-3q+3\) square extensions, each with \(q-1\) choices for the
+pendant vertex. The choices at the two ends are independent conditional
+on the core coloring. This proves~\eqref{eq:boundary} for all integers
+\(q\ge2\), and hence as a polynomial identity. At \(q=3\) each end
+has six extensions, proving the factor 36.
+\end{proof}
+
+\subsection*{The classical count and the full numerator}
+The double-strip matrix on p.~11 of Biggs and Meredith~\cite{bm},
+specialized to three colors, is
+\[
+ T=\begin{pmatrix}4&1\\2&1\end{pmatrix},\qquad
+ T^2-5T+2I=0.
+\]
+Their initial graph is a three-vertex path. The two components count
+the strip and the quotient identifying the top and bottom boundary
+vertices. Initially these counts are \(12\) and \(6\); after one
+step the first is \(4(12)+6=54\).
+Theorem~2 of that paper therefore gives
+\[
+ b_1=12,\quad b_2=54,\qquad
+ b_m=5b_{m-1}-2b_{m-2}\quad(m\ge3).
+\]
+Equivalently,
+\begin{equation}\label{eq:grid-gf}
+ B(z):=\sum_{m\ge1}b_mz^m=\frac{12z-6z^2}{1-5z+2z^2}.
+\end{equation}
+Ro\v{c}ek--Shrock--Tsai~\cite[eqs.~(2.35)--(2.36),
+(2.40)--(2.41)]{rst} give
+\(\sum_{j\ge0}b_{j+2}z^j=(54-24z)/(1-5z+2z^2)\),
+which is the same formula with a different starting width.
+Ginepro--Hull's normalized three-row series~\cite[p.~6]{gh} is
+\((1-z)/(1-5z+2z^2)\); their Theorem~4 identifies its positive-width
+coefficients with \(b_m/3\), since one vertex is precolored.
+Spahn's series~\cite[pp.~44--45]{spahn} is \(1+B(z)\).
+
+Finally \(a_1=27\) and \(a_2=96\): one column is unrestricted, while
+the two-column graph is a path on six vertices, with \(3\cdot2^5\)
+colorings. Thus Theorem~\ref{thm:boundary} yields
+\[
+ \sum_{n\ge1}a_nz^n=27z+96z^2+36z^2B(z)
+ =\frac{27z-39z^2+6z^3-24z^4}{1-5z+2z^2}.
+\]
+It also gives the recurrence for \(n\ge5\). The nonzero coefficient
+of \(z^4\) proves that the cutoff is sharp. These are exact consequences
+of the older grid count with the explicit boundary decomposition above.
+
+\begin{corollary}\label{cor:oeis}
+With the offsets in OEIS A020698 and A052913, for every \(n\ge3\),
+\[
+ a_n=216\,\mathrm{A020698}(n-3)
+     =108\,\mathrm{A052913}(n-2).
+\]
+\end{corollary}
+\begin{proof}
+The defining recurrence and initial values \((2,9)\) of A020698
+\cite{related-one} give \(b_m=6\,\mathrm{A020698}(m-1)\) for \(m\ge1\).
+The defining recurrence and initial values \((1,4)\) of A052913
+\cite{related-two} give \(b_m=3\,\mathrm{A052913}(m)\) for \(m\ge1\).
+Both identities follow by their two initial values and induction.
+Theorem~\ref{thm:boundary} proves the asserted equalities.
+\end{proof}
+These identities are not posed in the cited array entries. The first
+also agrees with Andrew Woods's 7 September 2011 grid-coloring
+interpretation in A020698, where all six permutations of the three
+colors are identified.
+
+\section{A direct five-state proof}
+
+A column \((u_1,u_2,u_3)\) has one of the five equality patterns
+\[
+ AAA,\quad AAB,\quad ABA,\quad ABB,\quad ABC.
+\]
+These denote, respectively, three equal entries; only the first two equal;
+only the first and third equal; only the last two equal; or three distinct
+entries. The letters stand for distinct colors when different.
+Their multiplicities among the 27 labeled columns form the row vector
+\[
+ \alpha=(3,6,6,6,6).
+\]
+A column \(u\) may be followed by \(v\) exactly when
+\begin{equation}\label{eq:transition}
+ v_1\notin\{u_1,u_2\},\qquad
+ v_2\notin\{u_2,u_3\},\qquad v_3\ne u_3.
+\end{equation}
+Simultaneously permuting all three colors preserves these conditions and
+the equality pattern of \(v\). Hence the number of successors in each
+pattern depends only on the pattern of \(u\).
+
+For completeness, the successor columns for representatives are
+\[
+\begin{array}{c|l}
+000 & 111,112,121,122,211,212,221,222\\
+001 & 120,122,220,222\\
+010 & 221,222\\
+011 & 200,202,220,222\\
+012 & 200,201
+\end{array}
+\]
+by~\eqref{eq:transition}. Grouping each row by its successor's pattern gives
+\begin{equation}\label{eq:matrix}
+ Q=\begin{pmatrix}
+ 2&2&2&2&0\\
+ 1&1&0&1&1\\
+ 1&1&0&0&0\\
+ 1&1&1&1&0\\
+ 0&0&0&1&1
+ \end{pmatrix}.
+\end{equation}
+Let \(\ones=(1,1,1,1,1)^{\mathsf T}\). The entry of
+\(Q^k\ones\) for a given pattern counts the ways to append \(k\) columns
+to any fixed labeled column of that pattern. Indeed this holds for
+\(k=0\); choosing the next column and then its continuation proves the
+induction step. Therefore
+\begin{equation}\label{eq:count}
+ a_n=\alpha Q^{n-1}\ones\qquad(n\ge1).
+\end{equation}
+The initial multiplicities \(\alpha\), not the number of patterns, ensure
+that all labeled arrays are counted.
+
+Direct multiplication of~\eqref{eq:matrix} gives
+\[
+\begin{array}{c|rrrrr}
+k & \multicolumn{5}{c}{(Q^k\ones)^{\mathsf T}}\\\hline
+0&1&1&1&1&1\\
+1&8&4&2&4&2\\
+2&36&18&12&18&6\\
+3&168&78&54&84&24\\
+4&768&354&246&384&108
+\end{array}
+\]
+so, entry by entry,
+\begin{equation}\label{eq:identity}
+ Q^4\ones-5Q^3\ones+2Q^2\ones=0.
+\end{equation}
+Multiplying by \(\alpha Q^{n-5}\) proves~\eqref{eq:recurrence} for
+every \(n\ge5\). Multiplying the first four rows of the table by
+\(\alpha\) gives the stated initial values. Notice that this is an identity
+on continuation vectors; it need not be an identity on the whole matrix.
+
+For the generating function, take \(F(z)=\sum_{n\ge1}a_nz^n\) as a formal
+power series. The coefficients of \((1-5z+2z^2)F(z)\) in degrees at least
+five vanish by~\eqref{eq:recurrence}; those in degrees one through four are
+\[
+27,\quad 96-5(27)=-39,\quad
+432-5(96)+2(27)=6,\quad
+1944-5(432)+2(96)=-24.
+\]
+This is the numerator in~\eqref{eq:gf}. Its last coefficient also shows
+that the recurrence does not extend to \(n=4\).
+
+Finally, \(a_5=8856\), and put
+\(D_n=a_na_{n+2}-a_{n+1}^2\) for \(n\ge3\).
+The recurrence gives
+\[
+ D_3=432(8856)-1944^2=46656,\qquad D_{n+1}=2D_n\quad(n\ge3).
+\]
+For the second equality, replace \(a_{n+3}\) by
+\(5a_{n+2}-2a_{n+1}\) in \(D_{n+1}\), and then replace
+\(5a_{n+1}-a_{n+2}\) by \(2a_n\).
+Thus \(D_n\ne0\) for every \(n\ge3\), whereas an eventual order-one
+homogeneous recurrence would make all sufficiently late \(D_n\) zero.
+This completes the proof of Theorem~\ref{thm:main}.
+
+\section{Consequences and related entries}
+\begin{corollary}\label{cor:closed}
+Let \(\lambda_\pm=(5\pm\sqrt{17})/2\). For \(n\ge3\),
+\[
+ a_n=216\left[\left(1+\frac4{\sqrt{17}}\right)\lambda_+^{n-3}
+             +\left(1-\frac4{\sqrt{17}}\right)\lambda_-^{n-3}\right].
+\]
+In particular, \(a_{n+1}/a_n\to\lambda_+\).
+\end{corollary}
+\begin{proof}
+Both powers satisfy~\eqref{eq:recurrence}. The displayed expression is
+\(432\) at \(n=3\) and \(1944\) at \(n=4\), so induction proves the
+formula. Since \(0<\lambda_-<\lambda_+\) and both coefficients are
+positive, division by \(\lambda_+^{n-3}\) gives the ratio limit.
+\end{proof}
+
+\begin{corollary}\label{cor:thin}
+The parent table A233155 satisfies
+\begin{align*}
+ \counts_1(n)&=3\cdot2^{n-1} &&(n\ge1),\\
+ \counts_2(1)&=9,\qquad
+ \counts_2(n)=24\cdot3^{n-2} &&(n\ge2),\\
+ \counts_h(1)&=3^h,\quad
+ \counts_h(2)=6\cdot4^{h-1} &&(h\ge1),\\
+ \counts_h(3)&=12\cdot6^{h-1},\quad
+ \counts_h(4)=24\cdot9^{h-1} &&(h\ge1).
+\end{align*}
+\end{corollary}
+\begin{proof}
+Use the same alternating-column bijection for arbitrary height.
+For one row, a first color has three choices and each successor has two.
+For two rows the column patterns are \(AA,AB\), with multiplicities
+\(\beta=(3,6)\) and transfer matrix
+\[
+ R=\begin{pmatrix}2&2\\1&1\end{pmatrix}.
+\]
+Indeed a column \(00\) has successors \(11,12,21,22\), and a column
+\(01\) has successors \(20,22\). With \(\ones_2=(1,1)^{\mathsf T}\),
+\(\counts_2(n)=\beta R^{n-1}\ones_2\),
+\(\beta R\ones_2=24\), and \(R^2\ones_2=3R\ones_2\).
+These identities give the two-row formula for all \(n\ge2\).
+
+A single column has no edges, giving \(3^h\).
+For two columns, the graph is the path
+\[
+ (1,1),(1,2),(2,1),(2,2),\ldots,(h,1),(h,2),
+\]
+with \(2h\) vertices and exactly the specified edges. Its colorings number
+\(3\cdot2^{2h-1}=6\cdot4^{h-1}\).
+For three columns, the first row is a properly colored path and has
+\(3\cdot2^2=12\) choices. Suppose the preceding row is
+\((u_1,u_2,u_3)\), where \(u_2\ne u_3\).
+The next row \((v_1,v_2,v_3)\) must satisfy
+\(v_1\ne u_2\), \(v_2\ne u_3\), \(v_1\ne v_2\), and \(v_2\ne v_3\).
+There are two possibilities for \(v_2\): if \(v_2=u_2\), there are
+two choices for \(v_1\); otherwise there is one. In each case \(v_3\)
+has two choices. Thus every row has exactly \((2+1)2=6\) successors,
+giving \(12\cdot6^{h-1}\).
+
+For four columns, each proper row has one of the patterns
+\(ABAB,ABAC,ABCA,ABCB\), each with six labeled realizations.
+A fixed row \(u\) permits a proper row \(v\) below it exactly when
+\(v_j\ne u_{j+1}\) for \(1\le j\le3\).
+Counting the 24 possible \(v\)'s by pattern for representatives
+\(0101,0102,0120,0121\) gives
+\[
+ S=\begin{pmatrix}3&3&2&2\\2&2&2&2\\2&2&2&2\\3&3&2&2\end{pmatrix}.
+\]
+Thus \(\counts_h(4)=(6,6,6,6)S^{h-1}\ones_4\), where
+\(\ones_4=(1,1,1,1)^{\mathsf T}\).
+Here \(S\ones_4=(10,8,8,10)^{\mathsf T}\) and
+\(S^2\ones_4=9S\ones_4\).
+The first two counts are \(24\) and \(216\), so the formula
+\(\counts_h(4)=24\cdot9^{h-1}\) follows for every \(h\ge1\).
+\end{proof}
+
+\section{The remaining parent-table recurrences}\label{sec:siblings}
+The FORMULA block of A233155, revision 6 (3 September 2022), lists
+empirical recurrences for columns 1--7 and rows 1--7. The words
+``[order 7]'', ``[order 9]'' and ``[order 27]'' in its last three rows
+are made explicit in A233158, A233159 and A233160, respectively
+\cite{higher}. The same representation establishes all these recurrences
+and the two empirical FORMULA lines in A233157, revision 8
+(9 October 2018), including Barker's generating function~\cite{four}.
+The four-row square-strip denominator \(1-9z+15z^2-6z^3\)
+already occurs in Ro\v{c}ek--Shrock--Tsai~\cite[eqs.~(3.4)--(3.6)]{rst}.
+Their diagonal-strip denominators, at three colors, are
+\(1-15z+18z^2\) and \(1-25z+90z^2-81z^3\)
+\cite[Appendix~II.A, eqs.~(8.3)--(8.4), (8.8)--(8.10)]{rst}; these
+also occur in columns five and six below. Different boundary graphs
+can change the numerator and onset, so these denominator coincidences
+alone do not identify the full counts. The following finite-set
+construction supplies the actual array boundaries and the stated
+initial ranges for every displayed sibling formula.
+
+For a tuple \(u\) of colors, let \(\pi(u)\) replace the first color
+encountered by 0, the next new color by 1, and the third by 2.
+Let \(\mathcal P_h=\{\pi(u):u\in\{0,1,2\}^h\}\), in lexicographic
+order. These are all equality patterns of unrestricted columns.
+For \(u,v\in\mathcal P_h\), define
+\[
+ (Q_h)_{u,v}=\#\{w\in\{0,1,2\}^h:\pi(w)=v,\quad
+ w_i\ne u_i\ (1\le i\le h),\quad
+ w_i\ne u_{i+1}\ (1\le i<h)\}.
+\]
+Let \(\alpha_h(u)=3\) if \(u\) is constant and \(\alpha_h(u)=6\)
+otherwise. Color permutation symmetry and the continuation induction
+used in~\eqref{eq:count} give
+\begin{equation}\label{eq:generic-row}
+ \counts_h(n)=\alpha_h Q_h^{n-1}\ones_h\quad(n\ge1),
+\end{equation}
+where \(\ones_h\) is the all-one column indexed by \(\mathcal P_h\).
+In particular \(Q_3=Q\); the quotient counts labeled arrays, not
+color-permutation classes of whole arrays.
+
+For a fixed width \(k\ge2\), let \(\mathcal R_k\) be the lexicographically
+ordered patterns \(\pi(u)\) of proper rows, that is,
+\(u_i\ne u_{i+1}\) for \(1\le i<k\). Set
+\[
+ (S_k)_{u,v}=\#\{w\in\{0,1,2\}^k:\pi(w)=v,\quad
+ w_i\ne w_{i+1},\ w_i\ne u_{i+1}\ (1\le i<k)\}.
+\]
+Every proper row has six labeled realizations, so
+\begin{equation}\label{eq:generic-column}
+ \counts_h(k)=6\boldsymbol{1}^{\mathsf T}S_k^{h-1}\boldsymbol{1}
+ \quad(h\ge1),
+\end{equation}
+with all-one vectors indexed by \(\mathcal R_k\).
+This follows by the same induction, now appending rows. All matrices
+in these definitions are specified by finite sets, without fitted entries.
+
+\begin{corollary}\label{cor:all}
+For the coefficient list \(c=(c_1,\ldots,c_d)\) in
+Table~\ref{tab:rows}, the row sequence \(b_n=\counts_h(n)\) satisfies
+\(b_n=\sum_{j=1}^d c_jb_{n-j}\) for every \(n\ge N\) in that table.
+For \(k=5,6,7\), the column sequence \(b_h=\counts_h(k)\) satisfies,
+respectively,
+\begin{align*}
+ b_h&=15b_{h-1}-18b_{h-2} &&(h\ge3),\\
+ b_h&=25b_{h-1}-90b_{h-2}+81b_{h-3} &&(h\ge4),\\
+ b_h&=42b_{h-1}-351b_{h-2}+972b_{h-3}-810b_{h-4} &&(h\ge5).
+\end{align*}
+For four rows the ordinary generating function is
+\[
+ \sum_{n\ge1}\counts_4(n)z^n=
+ \frac{3z(27-115z+117z^2-186z^3+96z^4-360z^5+216z^6)}
+ {1-9z+15z^2-6z^3}.
+\]
+Its recurrence begins sharply at \(n=8\).
+\end{corollary}
+
+\begin{table}[ht]
+\centering\small
+\begin{tabularx}{\textwidth}{@{}rrrX@{}}\toprule
+Height \(h\)&\(N\)&\(d\)&\((c_1,\ldots,c_d)\)\\\midrule
+3&5&2&\((5,-2)\)\\
+4&8&3&\((9,-15,6)\)\\
+5&12&7&\((16,-64,76,17,-84,48,-8)\)\\
+6&16&9&\((30,-283,1038,-573,-6705,21056,-27636,17216,-4128)\)\\
+7&34&27&\(\begin{aligned}[t](&55,-1066,8965,-19778,-225541,2020719,\\
+ &-6851286,7381301,20655503,-79401996,80882723,\\
+ &65337447,-222811374,135953338,120111164,\\
+ &-197698384,43440564,76879396,-52839536,\\
+ &-1810608,13170096,-4166800,-433792,532928,\\
+ &-126464,13056,-512)\end{aligned}\)\\\bottomrule
+\end{tabularx}
+\caption{The empirical row recurrences of the parent table, with
+the coefficient lists completed from their individual entries.}
+\label{tab:rows}
+\end{table}
+
+\begin{proof}
+Write \(p(X)=X^d-\sum_{j=1}^dc_jX^{d-j}\).
+The finite identities required for the rows are
+\begin{equation}\label{eq:row-cert}
+ Q_h^s p(Q_h)\ones_h=0,
+ \qquad (h,s)=(3,2),(4,4),(5,4),(6,6),(7,6).
+\end{equation}
+The dimensions of these matrices are respectively \(5,14,41,122,365\).
+For columns 5, 6 and 7, use the corresponding polynomial from the
+displayed column recurrences. The finite identities are
+\begin{equation}\label{eq:column-cert}
+ p(S_5)\boldsymbol{1}=0,\qquad
+ S_6p(S_6)\boldsymbol{1}=0,\qquad
+ p(S_7)\boldsymbol{1}=0;
+\end{equation}
+the dimensions are 8, 16 and 32. The complete matrices and their
+successive vectors \(v_0=\boldsymbol{1}\), \(v_{j+1}=Mv_j\), through
+\(v_{s+d}\), are given in \texttt{certificates.json}.
+Each identity is the exact integer calculation
+\(v_{s+d}-\sum_{j=1}^d c_jv_{s+d-j}=0\).
+The accompanying \texttt{siblings.py} reconstructs each matrix from
+the finite-set definitions above and checks these vector equalities.
+Thus the finite premises, including every coordinate, are explicit.
+
+Multiplying~\eqref{eq:row-cert} by
+\(\alpha_h Q_h^{n-1-s-d}\) proves the row recurrence for every
+\(n\ge s+d+1=N\), by~\eqref{eq:generic-row}.
+The same argument applied to~\eqref{eq:generic-column} proves the
+column recurrences for heights at least 3, 5 and 5, respectively.
+For column 6, the additional case \(h=4\) is
+\[
+ 842616=25(40392)-90(1944)+81(96),
+\]
+so its stated range is \(h\ge4\). In particular, no conclusion
+for all heights depends on extrapolating a finite scalar prefix.
+
+For four rows the first seven counts are
+\[
+81,384,2592,17496,121176,842616,5871528.
+\]
+Multiplying their power series by \(1-9z+15z^2-6z^3\) gives the coefficients
+\[
+ (81,-345,351,-558,288,-1080,648)
+\]
+in degrees 1--7.
+The recurrence makes every higher coefficient zero. This proves the
+generating function; the nonzero coefficient 648 in degree 7 proves
+the sharp starting index.
+\end{proof}
+
+\noindent The source coverage is as follows. ``Proved'' refers to an
+empirical assertion at the specified FORMULA locator. The larger-strip
+proofs use the finite integer identities above. No minimality claim is
+made for their recurrence degrees. ``Reproved'' credits the older grid
+enumeration together with Theorem~\ref{thm:boundary}.
+\begin{center}
+\small
+\begin{tabularx}{\textwidth}{@{}p{.25\textwidth}XX@{}}
+\toprule
+Source & Statement & Coverage\\\midrule
+A233156, FORMULA 1 & Hardin's recurrence for \(n>4\) & Reproved; prior proof Biggs--Meredith (1976), boundary reduction in Theorem~\ref{thm:boundary}\\
+A233156, FORMULA 2 & Barker's generating function & Reproved; prior grid series Ro\v{c}ek--Shrock--Tsai (1997), full boundary numerator in Section~\ref{sec:boundary}\\
+A233155, row 3 & The same recurrence & Reproved; prior proof Biggs--Meredith (1976)\\
+A233155, rows 1, 2 & Orders one with the stated initial ranges & Proved, Corollary~\ref{cor:thin}\\
+A233155, columns 1--4 & Ratios \(3,4,6,9\) as height increases & Proved, Corollary~\ref{cor:thin}\\
+A233155, columns 5, 6 & Recurrences of degrees 2 and 3 & Proved, Corollary~\ref{cor:all}; related strip denominators Ro\v{c}ek--Shrock--Tsai (1997)\\
+A233155, column 7 & Recurrence of degree 4 & Proved, Corollary~\ref{cor:all}\\
+A233155, row 4 & Degree 3 with \(n\ge8\) & Proved, Corollary~\ref{cor:all}; square-strip denominator Ro\v{c}ek--Shrock--Tsai (1997)\\
+A233155, rows 5--7 & Degrees 7, 9 and 27 at the stated ranges & Proved, Corollary~\ref{cor:all}\\
+A233157, FORMULA 1--2 & Hardin's recurrence and Barker's generating function & Proved, Corollary~\ref{cor:all}\\
+A233158--A233160, FORMULA & Explicit higher-row recurrences & Proved, Corollary~\ref{cor:all}\\
+General transfer formulas & Equality-pattern transfer for every fixed strip & Not posed; proved, (\ref{eq:generic-row})--(\ref{eq:generic-column})\\
+Array-to-grid boundary identity and sequence links & General-color factor and A020698/A052913 identities & Not posed; proved, Theorem~\ref{thm:boundary} and Corollary~\ref{cor:oeis}\\
+\bottomrule
+\end{tabularx}
+\end{center}
+The closed form, ratio limit and three-row minimality statement are
+not posed in those entries; they are proved consequences. The parent
+table's cross-references A000244, A002023, A000400, A055275, A003945
+and A005051 identify the elementary sequences in Corollary~\ref{cor:thin};
+their other interpretations are outside the present scope. The six-color counting problem
+in A233258 has a different alphabet and normalization and is not covered.
+
+\section{Mathematical verification}
+The formal counterpart of~\eqref{eq:recurrence} is
+\href{https://github.com/the-omega-institute/trureturing/blob/e135d8e2afafffb707a541357df302c35e90baff/D5/S3/Combinatorics/TraceAvoidingArrays/HardinA233156Row.lean}{\texttt{HardinA233156Row.result}}:
+for every natural number \(m\),
+\[
+ U_3(m+5)=5U_3(m+4)-2U_3(m+3),
+\]
+as an integer identity, with \(U_3(n)=\counts_3(n)\).
+The alternating-column bijection is expressed by
+\href{https://github.com/the-omega-institute/trureturing/blob/e135d8e2afafffb707a541357df302c35e90baff/D5/S3/Combinatorics/TraceAvoidingArrays/HardinA233155ColumnTransfer.lean}{\texttt{properEquiv}}
+and the five-state count for widths at least two by
+\href{https://github.com/the-omega-institute/trureturing/blob/e135d8e2afafffb707a541357df302c35e90baff/D5/S3/Combinatorics/TraceAvoidingArrays/HardinA233258PairTransfer.lean}{\texttt{count\_transfer}}.
+These declaration names refer to the three-color definitions in the linked
+files. The three-row generating function, minimality, closed form and
+thin-strip formulas have the written proofs given above.
+Corollary~\ref{cor:all} has the written counting reduction and the
+specified finite integer identities; no additional formal scope is
+attributed to these declarations. In particular, the helper filename
+containing \texttt{A233258} refers here to its three-color definitions,
+not to the different OEIS entry.
+
+The chromatic-polynomial boundary identity has the written proof of
+Theorem~\ref{thm:boundary}. The accompanying \texttt{boundary.py} checks
+its extension counts for each proper three-entry boundary column with
+two through five colors, compares the three-color array and grid counts,
+and checks the cited strip-denominator specializations; the finite
+ranges are in \texttt{boundary-verification.json}. This identity and its
+general-color version are not posed in the cited OEIS entries.
+
+The accompanying \texttt{verify.py} uses exact integers to check the
+column bijection, quotient counts and vector identity, and compares the
+27-state literal counts with the five-state counts. Its detailed finite
+ranges and results are in \texttt{verification.json}. The all-length
+conclusion follows from~\eqref{eq:count}--\eqref{eq:identity}, not from
+matching a finite prefix.
+The larger-strip matrices and vector identities are covered by
+\texttt{siblings.py}; its finite ranges are in
+\texttt{siblings-verification.json}. These finite identities, combined
+with the written induction, establish Corollary~\ref{cor:all}.
+
+\begin{thebibliography}{12}
+\small
+\bibitem{source}
+R.~H. Hardin, with a generating-function contribution by C.~Barker,
+\emph{A233156}, The On-Line Encyclopedia of Integer Sequences,
+created 5 December 2013, revision 8, 9 October 2018.
+\url{https://oeis.org/A233156}.
+The fixed sequence export is
+\href{https://raw.githubusercontent.com/oeis/oeisdata/571197984aeda7b8b680fe3a1f6a43f9898cd441/seq/A233/A233156.seq}{\texttt{A233156.seq}}.
+\bibitem{parent}
+R.~H. Hardin, \emph{A233155}, The On-Line Encyclopedia of Integer
+Sequences, created 5 December 2013, revision 6, 3 September 2022.
+\url{https://oeis.org/A233155}.
+Its fixed export is
+\href{https://raw.githubusercontent.com/oeis/oeisdata/571197984aeda7b8b680fe3a1f6a43f9898cd441/seq/A233/A233155.seq}{\texttt{A233155.seq}},
+FORMULA entries for columns 1--7 and rows 1--7.
+\bibitem{four}
+R.~H. Hardin, with a generating-function contribution by C.~Barker,
+\emph{A233157}, The On-Line Encyclopedia of Integer Sequences,
+revision 8, 9 October 2018, FORMULA lines 1--2.
+\href{https://raw.githubusercontent.com/oeis/oeisdata/571197984aeda7b8b680fe3a1f6a43f9898cd441/seq/A233/A233157.seq}{Fixed sequence export}.
+\bibitem{higher}
+R.~H. Hardin, \emph{A233158, A233159, A233160}, The On-Line
+Encyclopedia of Integer Sequences, revision 4, 5 December 2013,
+FORMULA line 1 in each entry.
+\href{https://raw.githubusercontent.com/oeis/oeisdata/571197984aeda7b8b680fe3a1f6a43f9898cd441/seq/A233/A233158.seq}{A233158};
+\href{https://raw.githubusercontent.com/oeis/oeisdata/571197984aeda7b8b680fe3a1f6a43f9898cd441/seq/A233/A233159.seq}{A233159};
+\href{https://raw.githubusercontent.com/oeis/oeisdata/571197984aeda7b8b680fe3a1f6a43f9898cd441/seq/A233/A233160.seq}{A233160}.
+\bibitem{ac}
+P.~Flajolet and R.~Sedgewick, \emph{Analytic Combinatorics},
+Cambridge University Press, 2009, Section V.6, ``Transfer matrix models,''
+and Figure V.20, p.~356. \url{https://doi.org/10.1017/CBO9780511801655}.
+\bibitem{bm}
+N.~L. Biggs and G.~H.~J. Meredith, \emph{Approximations for chromatic
+polynomials}, Journal of Combinatorial Theory, Series B \textbf{20}
+(1976), 5--19. Section~3, Theorem~2, p.~10, and the double-strip
+matrix, p.~11. \url{https://doi.org/10.1016/0095-8956(76)90062-9}.
+An author-hosted copy is listed at
+\url{https://normanbiggs.com/research-papers-to-1988}.
+\bibitem{rst}
+M.~Ro\v{c}ek, R.~Shrock and S.-H. Tsai, \emph{Chromatic polynomials
+for families of strip graphs and their asymptotic limits}, Physica A
+\textbf{252} (1998), 505--546.
+\url{https://doi.org/10.1016/S0378-4371(98)00034-X}.
+Preprint, 13 December 1997:
+\url{https://arxiv.org/abs/cond-mat/9712148v1}.
+\bibitem{ss}
+J.~Salas and A.~D. Sokal, \emph{Transfer matrices and partition-function
+zeros for antiferromagnetic Potts models I. General theory and
+square-lattice chromatic polynomial}, Journal of Statistical Physics
+\textbf{104} (2001), 609--699.
+\url{https://doi.org/10.1023/A:1010376605067}.
+Preprint, first posted 19 April 2000, version 2 dated 8 January 2001:
+\url{https://arxiv.org/abs/cond-mat/0004330v2}.
+Section~5.2, eqs.~(5.3)--(5.4) and footnote~28.
+\bibitem{gh}
+J.~Ginepro and T.~C. Hull, \emph{Counting Miura-ori foldings}, Journal
+of Integer Sequences \textbf{17} (2014), Article 14.10.8, published
+5 November 2014. Section~3, p.~6, and Theorem~4, p.~11.
+\url{https://cs.uwaterloo.ca/journals/JIS/VOL17/Hull/hull.html}.
+\bibitem{spahn}
+G.~Spahn, \emph{Counting Classes of Matrices and More Using Experimental
+Mathematics}, Ph.D. dissertation, Rutgers, The State University of New
+Jersey, 4 March 2024. Section~6.1, pp.~44--45.
+\url{https://sites.math.rutgers.edu/~zeilberg/Theses/GeorgeSpahnThesis.pdf}.
+\bibitem{related-one}
+D.~W. Wilson and contributors, \emph{A020698}, The On-Line Encyclopedia
+of Integer Sequences, revision 62, 8 September 2022, NAME and FORMULA;
+grid-coloring comment by A.~Woods, 7 September 2011.
+\href{https://raw.githubusercontent.com/oeis/oeisdata/571197984aeda7b8b680fe3a1f6a43f9898cd441/seq/A020/A020698.seq}{Fixed sequence export}.
+\bibitem{related-two}
+The On-Line Encyclopedia of Integer Sequences, \emph{A052913},
+revision 81, 8 September 2022, NAME and FORMULA.
+\href{https://raw.githubusercontent.com/oeis/oeisdata/571197984aeda7b8b680fe3a1f6a43f9898cd441/seq/A052/A052913.seq}{Fixed sequence export}.
+\end{thebibliography}
+
+\bigskip
+\noindent\small \copyright\ 2026 Haobo Ma and Wenlin Zhang.
+Licensed under Creative Commons Attribution 4.0 International
+(CC BY 4.0): \url{https://creativecommons.org/licenses/by/4.0/}.
+\end{document}

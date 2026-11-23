@@ -1,0 +1,123 @@
+{
+  "status": "pass",
+  "arithmetic": "exact integers",
+  "boundary_extension_checks": [
+    {
+      "colors": 2,
+      "proper_boundary_columns": 2,
+      "extensions_per_end": 1,
+      "array_widths_compared": [
+        3,
+        10
+      ]
+    },
+    {
+      "colors": 3,
+      "proper_boundary_columns": 12,
+      "extensions_per_end": 6,
+      "array_widths_compared": [
+        3,
+        10
+      ]
+    },
+    {
+      "colors": 4,
+      "proper_boundary_columns": 36,
+      "extensions_per_end": 21,
+      "array_widths_compared": [
+        3,
+        10
+      ]
+    },
+    {
+      "colors": 5,
+      "proper_boundary_columns": 80,
+      "extensions_per_end": 52,
+      "array_widths_compared": [
+        3,
+        10
+      ]
+    }
+  ],
+  "three_color_array_grid_identity": {
+    "factor": 36,
+    "array_widths": [
+      3,
+      72
+    ],
+    "grid_widths": [
+      1,
+      70
+    ]
+  },
+  "Biggs_Meredith_matrix": [
+    [
+      4,
+      1
+    ],
+    [
+      2,
+      1
+    ]
+  ],
+  "matrix_polynomial_residual": [
+    [
+      0,
+      0
+    ],
+    [
+      0,
+      0
+    ]
+  ],
+  "three_row_grid_initial_values": [
+    12,
+    54,
+    246
+  ],
+  "three_row_grid_generating_numerator": [
+    12,
+    -6
+  ],
+  "OEIS_sequence_identities": {
+    "A020698_factor": 216,
+    "A020698_shift": -3,
+    "A052913_factor": 108,
+    "A052913_shift": -2,
+    "array_widths_compared": [
+      3,
+      72
+    ]
+  },
+  "array_generating_numerator_degrees_1_to_4": [
+    27,
+    -39,
+    6,
+    -24
+  ],
+  "Rocek_Shrock_Tsai_denominators_at_three_colors": {
+    "square_three_rows": [
+      1,
+      -5,
+      2
+    ],
+    "square_four_rows": [
+      1,
+      -9,
+      15,
+      -6
+    ],
+    "diagonal_three": [
+      1,
+      -15,
+      18
+    ],
+    "diagonal_four": [
+      1,
+      -25,
+      90,
+      -81
+    ]
+  },
+  "scope": "Boundary counts and finite comparisons; the all-width boundary decomposition is proved in the note."
+}

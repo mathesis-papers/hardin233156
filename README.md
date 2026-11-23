@@ -1,9 +1,29 @@
-# Mathesis paper template
+# Boundary formulas for Hardin's array recurrences and Barker's generating functions via Biggs–Meredith enumeration
 
-One repository for one exact Mathesis paper version. This template has no selected paper and no example books.
+**Authors:** Haobo Ma, Wenlin Zhang
 
-Authors can start from the [Mathesis LaTeX manuscript template](docs/layer-mathesis/MANUSCRIPT.md) for papers and short notes. Our own short notes use it as their default reference; sections and length follow the mathematical argument.
+We give an alternative proof of Hardin's empirical recurrence and Barker's generating function in OEIS A233156, revision 8 (9 October 2018), FORMULA lines 1 and 2, by reducing them to Biggs and Meredith's double-strip enumeration (1976, Section 3, pp. 10–11). For n >= 3 the labeled three-row array count is exactly 36 times the proper three-coloring count of a 3 by (n-2) rectangular grid. This gives the recurrence for n >= 5 and the complete generating function, including its exceptional initial terms. A direct five-state proof establishes sharp onset and minimal eventual order two. Every displayed row and column recurrence of A233155 and Barker's four-row generating function in A233157 are also proved, with explicit finite integer identities for the larger strips.
 
-The upstream books template supplies the machinery; the Mathesis layer supplies the publisher adapter and the [enforced four-zone layout](docs/layer-mathesis/LAYOUT.md).
+- PDF: [frozen public file](paper.pdf)
+- License: CC-BY-4.0
+- Version: 3
+- Mathesis record: [hardin233156](https://mathesis-omega-research.apps.chrono-ai.fun/papers/hardin233156?version=3)
 
-Use [the publisher pipeline](docs/layer-mathesis/PIPELINE.md) to import a public projection with `paper.py fill`. It creates the paper record, one bilingual content skeleton and a generated paper README. Upgrade with `tbook template update`; keep preparation run records outside the repository.
+## How to cite
+
+Haobo Ma, Wenlin Zhang (2026). Boundary formulas for Hardin's array recurrences and Barker's generating functions via Biggs–Meredith enumeration. Mathesis, version 3. https://mathesis-omega-research.apps.chrono-ai.fun/papers/hardin233156?version=3
+
+## Statement progress
+
+| Statement | Formalization status | Source | Verification basis |
+|---|---|---|---|
+| Theorem (s1) | preparing | [Lean source](https://github.com/the-omega-institute/trureturing/blob/e135d8e2afafffb707a541357df302c35e90baff/D5/S3/Combinatorics/TraceAvoidingArrays/HardinA233156Row.lean) | No public receipt |
+| Theorem (s2) | preparing | [Lean source](https://github.com/the-omega-institute/trureturing/blob/e135d8e2afafffb707a541357df302c35e90baff/D5/S3/Combinatorics/TraceAvoidingArrays/HardinA233156Row.lean) | No public receipt |
+| Corollary (s3) | preparing | [Lean source](https://github.com/the-omega-institute/trureturing/blob/e135d8e2afafffb707a541357df302c35e90baff/D5/S3/Combinatorics/TraceAvoidingArrays/HardinA233156Row.lean) | No public receipt |
+| Corollary (s4) | preparing | [Lean source](https://github.com/the-omega-institute/trureturing/blob/e135d8e2afafffb707a541357df302c35e90baff/D5/S3/Combinatorics/TraceAvoidingArrays/HardinA233156Row.lean) | No public receipt |
+| Corollary (s5) | preparing | [Lean source](https://github.com/the-omega-institute/trureturing/blob/e135d8e2afafffb707a541357df302c35e90baff/D5/S3/Combinatorics/TraceAvoidingArrays/HardinA233156Row.lean) | No public receipt |
+| Corollary (s6) | preparing | [Lean source](https://github.com/the-omega-institute/trureturing/blob/e135d8e2afafffb707a541357df302c35e90baff/D5/S3/Combinatorics/TraceAvoidingArrays/HardinA233156Row.lean) | No public receipt |
+
+## Contributions
+
+Original authors are listed above. Formalization contributors and attribution are retained in `formalization/nodes.json`; repository pull requests do not confer verification or credit. Submit formalization attempts through the Mathesis attempt path described in [CONTRIBUTING.md](CONTRIBUTING.md).

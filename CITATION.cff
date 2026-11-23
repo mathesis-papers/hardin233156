@@ -1,0 +1,10 @@
+cff-version: 1.2.0
+message: "If you use this work, cite it."
+title: "Boundary formulas for Hardin's array recurrences and Barker's generating functions via Biggs–Meredith enumeration"
+authors:
+  - name: "Haobo Ma"
+  - name: "Wenlin Zhang"
+date-released: "2026-11-23"
+version: "3"
+url: "https://mathesis-omega-research.apps.chrono-ai.fun/papers/hardin233156?version=3"
+license: "CC-BY-4.0"
