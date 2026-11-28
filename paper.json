@@ -31,6 +31,7 @@
     "concept_doi": "10.5281/zenodo.24445693",
     "current_version": 3,
     "doi": "10.5281/zenodo.24445694",
+    "kind": "note",
     "lean_source": {
       "revision": "e135d8e2afafffb707a541357df302c35e90baff",
       "url": "https://github.com/the-omega-institute/trureturing/blob/e135d8e2afafffb707a541357df302c35e90baff/D5/S3/Combinatorics/TraceAvoidingArrays/HardinA233156Row.lean"
@@ -55,10 +56,12 @@
     "title": "Boundary formulas for Hardin's array recurrences and Barker's generating functions via Biggs–Meredith enumeration",
     "versions": [
       {
+        "changelog": null,
         "previous_version": null,
         "published_on": "2026-11-23T17:48:18.416138600Z",
         "revision": "3",
-        "version": 3
+        "version": 3,
+        "version_label": null
       }
     ],
     "work": "hardin233156"
